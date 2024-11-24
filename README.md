@@ -49,10 +49,10 @@ This project follows **Clean Architecture** principles with the following layers
 ## Getting Started
 
 ### Prerequisites
-- Android Studio Giraffe or higher
-- Minimum SDK: 21
-- Target SDK: 33
-- Kotlin 1.9.0 or above
+- Android Studio Lady bug or higher
+- Minimum SDK: 27
+- Target SDK: 34
+- Kotlin 2.0.0 or above
 
 ### Installation
 1. Clone this repository:
