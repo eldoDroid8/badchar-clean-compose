@@ -1,4 +1,6 @@
 package com.ev.badchar.data.di
+
+import com.ev.badchar.data.BuildConfig
 import com.ev.badchar.data.source.remote.badchar.service.BadCharacterRetrofitService
 import com.ev.badchar.data.source.remote.model.GeneralErrorRemote
 import com.squareup.moshi.JsonAdapter
@@ -18,7 +20,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://breakingbadapi.com/api"
+    private const val BASE_URL = "https://breakingbadapi.com/api/"
 
     @Provides
     @Singleton
@@ -30,11 +32,11 @@ object NetworkModule {
     @Singleton
     fun provideOkhttpClient(): OkHttpClient {
         val httpClient = OkHttpClient().newBuilder()
-       /* if (BuildC.DEBUG) {
+        if (BuildConfig.DEBUG) {
             val interceptor = HttpLoggingInterceptor()
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             return httpClient.addInterceptor(interceptor).build()
-        }*/
+        }
         return httpClient.build()
     }
 
@@ -65,8 +67,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMoshiConverterFactory(moshi: Moshi): MoshiConverterFactory{
-        return  MoshiConverterFactory.create(moshi)
+    fun provideMoshiConverterFactory(moshi: Moshi): MoshiConverterFactory {
+        return MoshiConverterFactory.create(moshi)
     }
 
 }

@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.ev.badchar"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.ev.badchar"
@@ -45,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     packaging {
@@ -77,6 +78,8 @@ dependencies {
     implementation(libs.dagger.hilt)
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(libs.androidx.navigation.compose)
+    implementation (libs.androidx.hilt.navigation.compose)
     ksp(libs.dagger.hilt.compiler)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)

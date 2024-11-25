@@ -82,3 +82,4 @@ lint/tmp/
 /.idea/misc.xml
 /.idea/migrations.xml
 /.idea/kotlinc.xml
+/.idea/.gitignore

@@ -45,6 +45,9 @@ android {
             excludes += "META-INF/LICENSE-notice.md"
         }
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
