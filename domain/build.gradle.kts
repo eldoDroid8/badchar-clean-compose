@@ -10,6 +10,10 @@ android {
     namespace = "com.ev.badchar.domain"
     compileSdk = 34
 
+    defaultConfig {
+        minSdk = 27
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -18,6 +22,12 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    kotlinOptions {
+        jvmTarget = "21"
+    }
+    kotlin {
+        jvmToolchain(21)
     }
 }
 

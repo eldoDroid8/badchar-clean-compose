@@ -9,8 +9,7 @@ import retrofit2.Retrofit
 import java.io.IOException
 import java.net.SocketException
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-abstract class BaseRemoteDataSource constructor(
+abstract class BaseRemoteDataSource(
     val retrofit: Retrofit, private val moshiErrorAdapter:
     JsonAdapter<GeneralErrorRemote>
 ) {

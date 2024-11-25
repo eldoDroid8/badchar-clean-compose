@@ -1,4 +1,6 @@
-package `in`.ev.data.di.module
+package com.ev.badchar.data.di
+import com.ev.badchar.data.source.remote.badchar.service.BadCharacterRetrofitService
+import com.ev.badchar.data.source.remote.model.GeneralErrorRemote
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -28,11 +30,11 @@ object NetworkModule {
     @Singleton
     fun provideOkhttpClient(): OkHttpClient {
         val httpClient = OkHttpClient().newBuilder()
-        if (BuildConfig.DEBUG) {
+       /* if (BuildC.DEBUG) {
             val interceptor = HttpLoggingInterceptor()
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             return httpClient.addInterceptor(interceptor).build()
-        }
+        }*/
         return httpClient.build()
     }
 
@@ -51,14 +53,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMoshiErrorAdapter(moshi: Moshi): JsonAdapter<ErrorEntity> {
-        return moshi.adapter(ErrorEntity::class.java)
+    fun provideMoshiErrorAdapter(moshi: Moshi): JsonAdapter<GeneralErrorRemote> {
+        return moshi.adapter(GeneralErrorRemote::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideBadCharacterApiService(retrofit: Retrofit): BadCharacterApi {
-        return retrofit.create(BadCharacterApi::class.java)
+    fun provideBadCharacterApiService(retrofit: Retrofit): BadCharacterRetrofitService {
+        return retrofit.create(BadCharacterRetrofitService::class.java)
     }
 
     @Provides

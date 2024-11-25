@@ -9,6 +9,10 @@ android {
     namespace = "com.ev.badchar.data"
     compileSdk = 34
 
+    defaultConfig {
+        minSdk = 27
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -16,6 +20,29 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = "21"
+    }
+    kotlin {
+        jvmToolchain(21)
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes  += "META-INF/DEPENDENCIES"
+            excludes  +="META-INF/LICENSE"
+            excludes  +="META-INF/LICENSE.md"
+            excludes  +="META-INF/LICENSE.txt"
+            excludes  +="META-INF/license.txt"
+            excludes  +="META-INF/NOTICE.md"
+            excludes  +="META-INF/NOTICE.txt"
+            excludes  +="META-INF/notice.txt"
+            excludes  +="META-INF/ASL2.0"
+            excludes  +="META-INF/*.kotlin_module"
+            excludes += "META-INF/LICENSE-notice.md"
         }
     }
 }
